@@ -1,131 +1,113 @@
+/* --- 1. FONT SETUP & GLOBAL STYLES --- */
+/* This imports the two fonts we need from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+4:ital,wght@0,700;1,400&display=swap');
+
+/* This sets up the foundation for the entire page */
 body {
-  background: linear-gradient(120deg, #0D0D0D 80%, #232946 100%);
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* The dark background color */
+  background-color: #0D0D0D;
+
+  /* The default font for all text */
+  font-family: 'Inter', sans-serif;
+
+  /* The default text color */
   color: #E0E0E0;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+
+  /* Prevents horizontal scrolling */
   overflow-x: hidden;
 }
 
+
+/* --- 2. THE ANIMATED BACKGROUND --- */
+/* This creates the subtle, moving glow effect */
 body::before {
   /* Subtle grid lines for Swiss poster vibe */
   content: '';
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: repeating-linear-gradient(
-    to right,
-    rgba(255,255,255,0.025) 0,
-    rgba(255,255,255,0.025) 1px,
-    transparent 1px,
-    transparent 90px
-  ),
-  repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.025) 0,
-    rgba(255,255,255,0.025) 1px,
-    transparent 1px,
-    transparent 90px
-  );
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Puts it behind everything else */
+
+  /* The radial gradients that create the glow */
+  background-image: radial-gradient(at 20% 80%, rgba(55, 65, 81, 0.2) 0px, transparent 50%),
+                    radial-gradient(at 80% 10%, rgba(107, 114, 128, 0.15) 0px, transparent 50%);
+
+  /* The animation that makes it move */
+  animation: moveGradient 45s linear infinite;
 }
 
+/* This defines the animation keyframes */
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* --- 3. LAYOUT & CONTENT STYLES --- */
+/* This is the main container that holds all the content */
 .vessel {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 80vh;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  box-sizing: border-box;
-  position: relative;
-  background: transparent;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;   /* Centers content vertically */
+  min-height: 100vh;     /* Makes it take up the full screen height */
+  padding: 2rem;         /* Adds some space around the edges */
+  box-sizing: border-box;/* Ensures padding doesn't add to the width */
 }
 
+/* The main heading (your name) */
 h1 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 4.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.5rem 0;
-  line-height: 1;
-  border-left: 8px solid #3ecf8e; /* Modern green accent */
-  padding-left: 1rem;
-  background: none;
-  transition: border-color 0.3s;
+  font-family: 'Source Serif 4', serif;
+  font-size: 4.5rem; /* 72px */
+  font-weight: 700; /* Bold */
+  margin: 0;
 }
 
-h1:hover, h1:focus {
-  border-left-color: #43e6a0;
-}
-
+/* The descriptive paragraph */
 p {
-  font-size: 1.5rem;
-  color: #B0B0B0;
-  max-width: 600px;
-  margin: 0 0 2rem 0;
-  line-height: 1.6;
+  font-size: 1.125rem; /* 18px */
+  color: #888888; /* The secondary, grey text color */
+  max-width: 500px; /* Prevents the line from being too long */
+  margin-top: 1rem;
 }
 
-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 3rem 0;
-}
-
-nav a {
-  color: #E0E0E0;
-  font-size: 1rem;
-  font-weight: 700;
+/* The top-right navigation link */
+nav {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 0.875rem; /* 14px */
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: color 0.2s, box-shadow 0.2s;
-  position: relative;
-  padding: 0.25em 0.5em;
-  border-radius: 4px;
 }
 
-nav a:hover, nav a:focus {
-  color: #3ecf8e;
-  background: rgba(62, 207, 142, 0.08);
-  box-shadow: 0 2px 8px rgba(62, 207, 142, 0.08);
-  outline: none;
-}
-
+/* The bottom footer */
 footer {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  font-size: 0.85rem;
+  font-size: 0.75rem; /* 12px */
   text-transform: uppercase;
-  color: #A0A0A0;
-  margin-top: 4rem;
-  letter-spacing: 0.08em;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
+  color: #888888;
 }
 
-@media (max-width: 700px) {
-  .vessel {
-    padding: 2rem 1rem;
-  }
+/* Style for links */
+a {
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+a:hover {
+  color: #E0E0E0; /* Link becomes brighter on hover */
+}
+
+/* This makes the heading larger on bigger screens */
+@media (min-width: 768px) {
   h1 {
-    font-size: 2.2rem;
-    border-left-width: 4px;
-    padding-left: 0.5rem;
-  }
-  nav ul {
-    gap: 1rem;
-  }
-  footer {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
+    font-size: 6rem; /* 96px */
   }
 }
