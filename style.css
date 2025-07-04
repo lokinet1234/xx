@@ -1,29 +1,15 @@
 /* --- 1. FONT SETUP & GLOBAL STYLES --- */
-/* This imports the two fonts we need from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+4:ital,wght@0,700;1,400&display=swap');
-
-/* This sets up the foundation for the entire page */
+/* Uses Helvetica Roman for all text */
 body {
-  /* The dark background color */
   background-color: #0D0D0D;
-
-  /* The default font for all text */
-  font-family: 'Inter', sans-serif;
-
-  /* The default text color */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #E0E0E0;
-
-  /* Removes default margin and padding */
   margin: 0;
   padding: 0;
-
-  /* Prevents horizontal scrolling */
   overflow-x: hidden;
 }
 
-
 /* --- 2. THE ANIMATED BACKGROUND --- */
-/* This creates the subtle, moving glow effect */
 body::before {
   content: '';
   position: fixed;
@@ -31,62 +17,51 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Puts it behind everything else */
-
-  /* The radial gradients that create the glow */
+  z-index: -1;
   background-image: radial-gradient(at 20% 80%, rgba(55, 65, 81, 0.2) 0px, transparent 50%),
                     radial-gradient(at 80% 10%, rgba(107, 114, 128, 0.15) 0px, transparent 50%);
-
-  /* The animation that makes it move */
   animation: moveGradient 45s linear infinite;
 }
 
-/* This defines the animation keyframes */
 @keyframes moveGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-
 /* --- 3. LAYOUT & CONTENT STYLES --- */
-/* This is the main container that holds all the content */
 .vessel {
   display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center;   /* Centers content vertically */
-  min-height: 100vh;     /* Makes it take up the full screen height */
-  padding: 2rem;         /* Adds some space around the edges */
-  box-sizing: border-box;/* Ensures padding doesn't add to the width */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-/* The main heading (your name) */
 h1 {
-  font-family: 'Source Serif 4', serif;
-  font-size: 4.5rem; /* 72px */
-  font-weight: 700; /* Bold */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 4.5rem;
+  font-weight: 400; /* Regular (Roman) weight */
   margin: 0;
 }
 
-/* The descriptive paragraph */
 p {
-  font-size: 1.125rem; /* 18px */
-  color: #888888; /* The secondary, grey text color */
-  max-width: 500px; /* Prevents the line from being too long */
+  font-size: 1.125rem;
+  color: #888888;
+  max-width: 500px;
   margin-top: 1rem;
 }
 
-/* The top-right navigation link */
 nav {
   position: absolute;
   top: 2rem;
   right: 2rem;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* The bottom footer */
 footer {
   position: absolute;
   bottom: 2rem;
@@ -94,25 +69,23 @@ footer {
   right: 2rem;
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
   text-transform: uppercase;
   color: #888888;
 }
 
-/* Style for links */
 a {
   color: #888888;
   text-decoration: none;
-  transition: color 0.3s ease; /* Smooth color change on hover */
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #E0E0E0; /* Link becomes brighter on hover */
+  color: #E0E0E0;
 }
 
-/* This makes the heading larger on bigger screens */
 @media (min-width: 768px) {
   h1 {
-    font-size: 6rem; /* 96px */
+    font-size: 6rem;
   }
 }
