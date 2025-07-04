@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="James Castillo's portfolio exploring design, technology, and principled minimalism.">
+    <meta name="keywords" content="design, technology, minimalism, James Castillo">
+    <meta name="author" content="James Castillo">
     <title>Digital Vessel</title>
-    
-    <!-- CORRECTION: This line now correctly links to your CSS file. -->
     <link rel="stylesheet" href="style.css">
-
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
-    <nav>
-        <a href="#">Writing</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="/writing">Writing</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <div class="vessel">
-        <section>
-            <h1>James Castillo</h1>
+    <main class="vessel" role="main">
+        <section aria-labelledby="main-heading">
+            <h1 id="main-heading">James Castillo</h1>
             <p>A vessel for architected thoughts on design, technology, and principled minimalism.</p>
         </section>
-    </div>
+    </main>
 
-    <footer>
+    <footer role="contentinfo">
         <span>© 2024</span>
         <span>INSTANTIATED</span>
     </footer>
 
+    <script src="scripts.js" defer></script>
 </body>
 </html>
