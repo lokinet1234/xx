@@ -5,61 +5,239 @@
   padding: 0;
 }
 
-/* --- 2. Global Styles --- */
+/* --- 2. Global Styles & Color Palette --- */
+:root {
+    /* Modern Dark Theme Palette inspired by your original */
+    --primary-background: #1E1E1E; /* Dark background */
+    --secondary-background: #2A2A2A; /* Slightly lighter dark for cards/sections */
+    --primary-text-color: #E0E0E0; /* Light text for readability */
+    --secondary-text-color: #B0B0B0; /* Muted text for paragraphs */
+    --accent-color: #007bff; /* A subtle blue for links/highlights */
+    --border-color: #333333; /* Darker border for subtle separation */
+
+    /* Typography */
+    --font-family-body: 'Roboto', sans-serif; /* Your original was Roboto, keeping for consistency */
+    --font-family-heading: 'Source Serif Pro', serif; /* Your original was Source Serif Pro, keeping */
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
-  color: #E0E0E0;
-  background-color: #1E1E1E;
+  font-family: var(--font-family-body);
+  color: var(--primary-text-color);
+  background-color: var(--primary-background);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  padding: 20px; /* Base padding for smaller screens */
 }
 
-.vessel {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  padding: 2rem;
-  background: #1E1E1E;
+h1, h2, h3 {
+  font-family: var(--font-family-heading);
+  color: var(--primary-text-color); /* Headings use primary text color */
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-.discourse {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-}
-
-article {
-  background: #1E1E1E;
-  padding: 1.5rem;
-  border-radius: 0.5rem; /* Subtle rounded corners */
+h1 {
+    font-size: 2.2rem;
 }
 
 h2 {
-  font-family: 'Source Serif Pro', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
 }
 
 p {
-  font-size: 0.9rem; /* 14px */
-  line-height: 1.6;
-  color: #888888;
+  font-size: 1rem; /* Adjusted for better readability */
+  line-height: 1.7;
+  color: var(--secondary-text-color);
+  margin-bottom: 1rem;
 }
 
-.engage {
-  color: #B5B5B5; /* Slightly darkened link color */
+a {
+  color: var(--accent-color); /* Links use accent color */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.engage:hover {
-  color: #E0E0E0;
+a:hover {
+  color: var(--primary-text-color);
+  text-decoration: underline;
 }
 
-/* --- 3. Responsive Adjustments --- */
-@media (max-width: 768px) {
-  .discourse {
-    grid-template-columns: 1fr;
-  }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below images */
+    margin-top: 1.5rem; /* Space above images */
+    border-radius: 0.25rem; /* Slightly rounded corners for images */
+}
+
+/* --- 3. Layout and Spacing --- */
+
+.container {
+    max-width: 1100px; /* Max width for content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 15px; /* Horizontal padding for smaller screens */
+}
+
+.site-header {
+    background-color: var(--secondary-background);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem; /* Space below header */
+}
+
+.site-header .container {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-title {
+    margin: 0; /* Remove default h1 margin */
+}
+
+.site-title a {
+    color: var(--primary-text-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Allow navigation items to wrap */
+    justify-content: center;
+    gap: 1.5rem; /* Space between nav items */
+}
+
+.site-nav a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.site-nav a:hover {
+    background-color: var(--border-color); /* Subtle hover effect */
+    text-decoration: none;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically by default (mobile-first) */
+    gap: 2rem; /* Space between sections */
+    margin-bottom: 3rem; /* Space above footer */
+}
+
+.discourse {
+    /* Removed old grid, the flexbox on main-content handles primary layout */
+    /* If you want internal grid within discourse for other elements, define here */
+    display: flex; /* Changed discourse to flex to manage its articles */
+    flex-direction: column; /* Stack articles on small screens */
+    gap: 2rem; /* Space between articles */
+}
+
+.card {
+    background-color: var(--secondary-background);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More noticeable shadow for depth */
+}
+
+.engage {
+  display: inline-block; /* Allows padding and margin */
+  background-color: var(--accent-color);
+  color: #FFFFFF; /* White text on accent background */
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.3rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.engage:hover {
+  background-color: darken(var(--accent-color), 10%); /* This won't work in pure CSS, use a slightly darker hex code like #0056b3 */
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+  text-decoration: none; /* No underline on button hover */
+}
+
+footer {
+    background-color: var(--secondary-background);
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* --- 4. Responsive Adjustments (Media Queries) --- */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    body {
+        padding: 30px; /* More padding on larger screens */
+    }
+
+    .site-header .container {
+        flex-direction: row; /* Header elements side-by-side */
+        justify-content: space-between;
+    }
+
+    .discourse {
+        flex-direction: row; /* Articles side-by-side */
+        flex-wrap: wrap; /* Allow articles to wrap if many */
+        justify-content: center; /* Center articles if they don't fill width */
+    }
+
+    .discourse article {
+        flex: 1; /* Allow articles to grow */
+        min-width: 280px; /* Minimum width for each article */
+        max-width: 32%; /* Approx 3 per row with gap */
+    }
+
+    .site-nav ul {
+        gap: 2rem; /* More space between nav items */
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        padding: 40px;
+    }
+
+    .main-content {
+        flex-direction: row; /* For a truly horizontal main content if desired */
+        /* If you want the three articles always in a row on desktop, you can make .main-content itself a flex container */
+        /* However, for three distinct articles, the .discourse flex logic above might be more appropriate. */
+        /* I've adjusted .discourse for flex-direction row for articles at 768px, which should suffice. */
+    }
+
+    .site-title a {
+        font-size: 2.2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Very large screens (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px; /* Slightly wider container for very large screens */
+    }
 }
