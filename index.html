@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Head content -->
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Personal Website</title> <link rel="stylesheet" href="styles.css">
+  </head>
 <body>
-  <header>
-    <!-- Navigation and branding -->
+
+  <header class="site-header">
+    <div class="container">
+        <h1 class="site-title"><a href="#">Your Name</a></h1> <nav class="site-nav">
+            <ul>
+                <li><a href="#thesis">Thesis</a></li>
+                <li><a href="#antithesis">Antithesis</a></li>
+                <li><a href="#synthesis">Synthesis</a></li>
+                <li><a href="#comments">Comments</a></li>
+            </ul>
+        </nav>
+    </div>
   </header>
 
-  <main class="vessel">
+  <main class="main-content container">
     <section class="discourse">
-      <article class="thesis">
+      <article class="thesis card" id="thesis">
         <h2>Thesis: Silence as Essence</h2>
         <p>Minimalism embraces silence not just as the absence of sound, but as a profound, deliberate choice that accentuates other senses and enhances contemplation...</p>
+        <img src="images/silence-concept.jpg" alt="A serene, minimalist room with soft light entering through a large window, conveying peacefulness.">
       </article>
 
-      <article class="antithesis">
+      <article class="antithesis card" id="antithesis">
         <h2>Antithesis: Oppressive Quietude</h2>
         <p>Critique arguing that minimalism's emphasis on silence can lead to an oppressive atmosphere, potentially isolating individuals and suppressing emotional expression...</p>
+        <img src="images/noise-concept.jpg" alt="A blurry, bustling city street at night, suggesting sensory overload and chaos.">
       </article>
 
-      <article class="synthesis">
+      <article class="synthesis card" id="synthesis">
         <h2>Synthesis: Balancing Silence and Sound</h2>
         <p>A balanced perspective advocating for a mindful approach to incorporating sound selectively within minimalist spaces and experiences to prevent monotony...</p>
         <a href="#comments" class="engage">What’s Your Take on Silence?</a>
+        <img src="images/balance-concept.jpg" alt="A perfectly balanced stack of smooth stones on a calm beach, symbolizing harmony.">
       </article>
 
-      <div id="comments">
-        <!-- Comments section -->
+      <div id="comments" class="card"> <h3>Comments Section</h3>
+        <p>This is where your comments section would be. You could integrate a comment system here later.</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <!-- Footer content -->
+    <div class="container">
+      <p>&copy; 2025 Your Name. All rights reserved.</p> </div>
   </footer>
+
 </body>
 </html>
